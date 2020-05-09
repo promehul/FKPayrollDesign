@@ -10,6 +10,7 @@ public class FlatSalaryWorker extends Employee {
     FlatSalaryWorker(double monthlySalary) {
         super();
         this.monthlySalary = monthlySalary;
+        this.updateNextPayAmount(monthlySalary);
     }
 
     public void setMonthlySalary(double monthlySalary) {
@@ -20,7 +21,8 @@ public class FlatSalaryWorker extends Employee {
         this.commissionRate = commissionRate;
     }
 
-    public void resetCommissionSalary(){
+    public void giveAwayCommissionSalary(){
+        System.out.println("The worker's commission salary is "+this.commissionSalary);
         this.commissionSalary = 0.0;
     }
 
@@ -31,6 +33,8 @@ public class FlatSalaryWorker extends Employee {
     public double getCommissionSalary(){
         return this.commissionSalary;
     }
+
+    
 
     public void submitSalesReceit(double sales) {
         SalesReceit receit = new SalesReceit(this, sales);

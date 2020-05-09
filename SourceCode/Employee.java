@@ -48,7 +48,7 @@ public class Employee {
         this.weeklyUnionDues = weeklyUnionDues;
     }
 
-    public void giveNextPayAmount(){
+    public void giveAwayNextPayAmount(){
         this.prevPayAmount = this.nextPayAmount;
         this.prevDayPay = LocalDateTime.now();
         this.nextPayAmount = 0;

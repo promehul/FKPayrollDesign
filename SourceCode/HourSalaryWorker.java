@@ -23,9 +23,9 @@ public class HourSalaryWorker extends Employee {
         
         if(LocalDateTime.now().getDayOfWeek()==DayOfWeek.FRIDAY){
             System.out.println("The worker is getting "+this.getNextPayAmount());
-            this.giveNextPayAmount();
+            this.giveAwayNextPayAmount();
         }    
-        
+        // What if worker does not come on friday
             //System.out.println(LocalDateTime.now().getDayOfWeek()==DayOfWeek.FRIDAY);   
     }
 
