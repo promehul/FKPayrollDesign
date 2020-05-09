@@ -14,10 +14,10 @@ public class Employee {
      private String mailAddress;
      private String accountDetails;
 
-     private float weeklyDues;
+     private double weeklyDues;
 
-     private float nextPayAmount;
-     private float prevPayAmount;
+     private double nextPayAmount;
+     private double prevPayAmount;
      private LocalDateTime prevDayPay;
 
      Employee() {
@@ -44,8 +44,16 @@ public class Employee {
             this.accountDetails = details;    
     }
 
+    public void updateNextPayAmount(double amount){
+        this.nextPayAmount += amount;
+    }
+
     public String getFullName() {
         return this.firstName + " " + this.lastName;
+    }
+
+    public double getNextPayAmount() {
+        return this.nextPayAmount;
     }
 
     public static void main(String[] args){
