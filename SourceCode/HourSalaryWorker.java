@@ -19,7 +19,14 @@ public class HourSalaryWorker extends Employee {
         if(hours<=8)
             this.updateNextPayAmount((double)(this.hourlyRate*hours));
         else
-            this.updateNextPayAmount(((this.hourlyRate)*8.0)+((double)(hours-8)*(this.hourlyRate)*1.5));     
+            this.updateNextPayAmount(((this.hourlyRate)*8.0)+((double)(hours-8)*(this.hourlyRate)*1.5));    
+        
+        if(LocalDateTime.now().getDayOfWeek()==DayOfWeek.FRIDAY){
+            System.out.println("The worker is getting "+this.getNextPayAmount());
+            this.giveNextPayAmount();
+        }    
+        
+            //System.out.println(LocalDateTime.now().getDayOfWeek()==DayOfWeek.FRIDAY);   
     }
 
     public static void main(String[] args){

@@ -3,8 +3,8 @@ package assignmentJava;
 import java.time.*;
 
 public class Employee {
-    
-    enum PaymentMethod {MAIL, PICKUP, DEPOSIT};
+
+     enum PaymentMethod {MAIL, PICKUP, DEPOSIT};
     
      private String firstName;
      private String lastName;
@@ -46,6 +46,12 @@ public class Employee {
 
     public void setWeeklyUnionDues(double weeklyUnionDues){
         this.weeklyUnionDues = weeklyUnionDues;
+    }
+
+    public void giveNextPayAmount(){
+        this.prevPayAmount = this.nextPayAmount;
+        this.prevDayPay = LocalDateTime.now();
+        this.nextPayAmount = 0;
     }
 
     public void updateNextPayAmount(double amount){
