@@ -14,7 +14,7 @@ public class Employee {
      private String mailAddress;
      private String accountDetails;
 
-     private double weeklyDues;
+     private double weeklyUnionDues;
 
      private double nextPayAmount;
      private double prevPayAmount;
@@ -44,8 +44,21 @@ public class Employee {
             this.accountDetails = details;    
     }
 
+    public void setWeeklyUnionDues(double weeklyUnionDues){
+        this.weeklyUnionDues = weeklyUnionDues;
+    }
+
     public void updateNextPayAmount(double amount){
         this.nextPayAmount += amount;
+    }
+
+    public void deductWeeklyUnionDues(){
+        this.nextPayAmount -= this.weeklyUnionDues;
+    }
+
+    public void assessUnionServiceCharge(String chargeReason, double amount){
+        UnionCharges unionCharge = new UnionCharges(this, chargeReason, amount);
+        this.nextPayAmount -= amount;
     }
 
     public String getFullName() {
@@ -61,6 +74,18 @@ public class Employee {
         System.out.println(emp.firstName+" "+emp.lastName);
         System.out.println(emp.payBy+" "+emp.prevDayPay);
         System.out.println(emp.nextPayAmount+" "+emp.dateOfJoining);
+    }
+}
+
+class UnionCharges {
+    Employee emp;
+    private String chargeReason;
+    private double amount;
+
+    UnionCharges(Employee emp, String chargeReason, double amount){
+        this.emp = emp;
+        this.chargeReason = chargeReason;
+        this.amount = amount;
     }
 }
 
